@@ -18,8 +18,10 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
   @IBOutlet weak var textField: UITextField!
   weak var delegate: AddItemViewControllerDelegate?
 
+
   override func viewDidLoad() {
     super.viewDidLoad()
+
   }
 
   override func viewWillAppear(_ animated: Bool) {

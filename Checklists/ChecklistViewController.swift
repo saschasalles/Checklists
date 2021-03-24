@@ -8,6 +8,8 @@
 import UIKit
 
 class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {
+
+
   func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
     navigationController?.popViewController(animated: true)
   }
@@ -25,6 +27,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
   var items = [ChecklistItem]()
 
   override func viewDidLoad() {
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     super.viewDidLoad()
     self.items += [
       ChecklistItem(text: "Walk the dog"),
@@ -93,4 +96,3 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
   }
 
 }
-

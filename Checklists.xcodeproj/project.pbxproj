@@ -15,6 +15,7 @@
 		2B76B8A2260A2A1A00D244F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B76B8A0260A2A1A00D244F4 /* LaunchScreen.storyboard */; };
 		2B76B8AD260A60C300D244F4 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76B8AC260A60C300D244F4 /* ChecklistItem.swift */; };
 		2B76B8B1260A8A9800D244F4 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76B8B0260A8A9800D244F4 /* AddItemViewController.swift */; };
+		2B76B8B5260BE94800D244F4 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76B8B4260BE94800D244F4 /* NavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		2B76B8A3260A2A1A00D244F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B76B8AC260A60C300D244F4 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		2B76B8B0260A8A9800D244F4 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		2B76B8B4260BE94800D244F4 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				2B76B897260A2A1900D244F4 /* SceneDelegate.swift */,
 				2B76B8AC260A60C300D244F4 /* ChecklistItem.swift */,
 				2B76B899260A2A1900D244F4 /* ChecklistViewController.swift */,
+				2B76B8B4260BE94800D244F4 /* NavigationController.swift */,
 				2B76B89B260A2A1900D244F4 /* Main.storyboard */,
 				2B76B8B0260A8A9800D244F4 /* AddItemViewController.swift */,
 				2B76B89E260A2A1A00D244F4 /* Assets.xcassets */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B76B8B1260A8A9800D244F4 /* AddItemViewController.swift in Sources */,
+				2B76B8B5260BE94800D244F4 /* NavigationController.swift in Sources */,
 				2B76B8AD260A60C300D244F4 /* ChecklistItem.swift in Sources */,
 				2B76B89A260A2A1900D244F4 /* ChecklistViewController.swift in Sources */,
 				2B76B896260A2A1900D244F4 /* AppDelegate.swift in Sources */,
