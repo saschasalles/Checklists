@@ -9,7 +9,6 @@ import UIKit
 
 class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {
 
-
   func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
     navigationController?.popViewController(animated: true)
   }
@@ -38,8 +37,6 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     ]
 
   }
-
-
 
   // MARK: - Table View DataSource
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,13 +81,13 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
   }
 
   func configureText(for cell: UITableViewCell, with item: ChecklistItem) {
-    let label = cell.viewWithTag(1000) as! UILabel
+    guard let label = cell.viewWithTag(1000) as? UILabel else { return }
     label.text = item.text
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "AddItem" {
-      let controller = segue.destination as! AddItemViewController
+      guard let controller = segue.destination as? AddItemViewController else { return }
       controller.delegate = self
     }
   }

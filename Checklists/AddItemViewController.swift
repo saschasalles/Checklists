@@ -18,7 +18,6 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
   @IBOutlet weak var textField: UITextField!
   weak var delegate: AddItemViewControllerDelegate?
 
-
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -29,7 +28,6 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     textField.becomeFirstResponder()
   }
 
-
   // MARK: - Actions
   @IBAction func cancel() {
     delegate?.addItemViewControllerDidCancel(self)
@@ -39,7 +37,6 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     let item = ChecklistItem(text: textField.text!)
     delegate?.addItemViewController(self, didFinishAdding: item)
   }
-
 
   override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
     return nil
