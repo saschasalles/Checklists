@@ -23,7 +23,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3SF-fO-E03">
-                                            <rect key="frame" x="53.5" y="11.5" width="42" height="21"/>
+                                            <rect key="frame" x="48.5" y="11.5" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="3SF-fO-E03" firstAttribute="centerY" secondItem="voX-Ki-nWX" secondAttribute="centerY" id="BSE-ii-0aX"/>
-                                        <constraint firstItem="3SF-fO-E03" firstAttribute="leading" secondItem="tUs-Gr-nFZ" secondAttribute="trailing" constant="15" id="C0r-l1-OYl"/>
+                                        <constraint firstItem="3SF-fO-E03" firstAttribute="leading" secondItem="tUs-Gr-nFZ" secondAttribute="trailing" constant="10" id="C0r-l1-OYl"/>
                                         <constraint firstItem="tUs-Gr-nFZ" firstAttribute="centerY" secondItem="voX-Ki-nWX" secondAttribute="centerY" id="UzH-M3-PYH"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3SF-fO-E03" secondAttribute="trailing" constant="20" symbolic="YES" id="am4-xh-Wla"/>
                                         <constraint firstItem="tUs-Gr-nFZ" firstAttribute="leading" secondItem="voX-Ki-nWX" secondAttribute="leading" constant="15" id="m2N-wX-UTY"/>
