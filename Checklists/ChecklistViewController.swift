@@ -75,11 +75,11 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
   func configureCheckmark(for cell: UITableViewCell, with item: ChecklistItem) {
     guard let label = cell.viewWithTag(1001) as? UILabel else { return }
 
-      if item.checked {
-        label.text = "●"
-      } else {
-        label.text = "○"
-      }
+    if item.checked {
+      label.text = "●"
+    } else {
+      label.text = "○"
+    }
   }
 
   func configureText(for cell: UITableViewCell, with item: ChecklistItem) {
@@ -91,6 +91,14 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     if segue.identifier == "AddItem" {
       guard let controller = segue.destination as? AddItemViewController else { return }
       controller.delegate = self
+    } else if segue.identifier == "EditItem" {
+      guard let controller = segue.destination as? AddItemViewController else { return }
+      controller.delegate = self
+
+      guard let cell = sender as? UITableViewCell else { return }
+      if let indexPath = tableView.indexPath(for: cell) {
+        controller.itemToEdit = items[indexPath.row]
+      }
     }
   }
 

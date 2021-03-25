@@ -17,10 +17,14 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
   @IBOutlet weak var doneBarButton: UIBarButtonItem!
   @IBOutlet weak var textField: UITextField!
   weak var delegate: AddItemViewControllerDelegate?
+  var itemToEdit: ChecklistItem?
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    if let item = itemToEdit {
+      title = "Edit Item"
+      textField.text = item.text
+    }
   }
 
   override func viewWillAppear(_ animated: Bool) {
