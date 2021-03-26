@@ -9,6 +9,7 @@ import UIKit
 
 class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {
 
+  // MARK: - Protocol Conformance
   func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController) {
     navigationController?.popViewController(animated: true)
   }
@@ -21,6 +22,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     let indexPaths = [indexPath]
     tableView.insertRows(at: indexPaths, with: .automatic)
     navigationController?.popViewController(animated: true)
+    saveChecklistItems()
   }
 
   func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem) {
@@ -31,21 +33,49 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
       }
     }
     navigationController?.popViewController(animated: true)
+    saveChecklistItems()
   }
 
   var items = [ChecklistItem]()
 
   override func viewDidLoad() {
-    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     super.viewDidLoad()
-    self.items += [
-      ChecklistItem(text: "Walk the dog"),
-      ChecklistItem(text: "Brush my teeth", checked: true),
-      ChecklistItem(text: "Learn iOS development", checked: true),
-      ChecklistItem(text: "Soccer practice"),
-      ChecklistItem(text: "Eat ice cream")
-    ]
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    loadChecklistItems()
+  }
 
+  // MARK: - Document
+  func documentsDirectory() -> URL? {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths.first
+  }
+
+  func dataFilePath() -> URL {
+    return documentsDirectory()!.appendingPathComponent("Checklists.plist")
+  }
+
+  func saveChecklistItems() {
+    let encoder = PropertyListEncoder()
+    do {
+      let data = try encoder.encode(items)
+      try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
+    } catch {
+      print("Error encoding item array: \(error.localizedDescription)")
+    }
+  }
+
+  func loadChecklistItems() {
+    let path = dataFilePath()
+    if let data = try? Data(contentsOf: path) {
+      let decoder = PropertyListDecoder()
+      do {
+        items = try decoder.decode(
+          [ChecklistItem].self,
+          from: data)
+      } catch {
+        print("Error decoding item array: \(error.localizedDescription)")
+      }
+    }
   }
 
   // MARK: - Table View DataSource
@@ -73,6 +103,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
       configureCheckmark(for: cell, with: item)
     }
     tableView.deselectRow(at: indexPath, animated: true)
+    saveChecklistItems()
   }
 
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
@@ -80,11 +111,11 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     items.remove(at: indexPath.row)
     let indexPaths = [indexPath]
     tableView.deleteRows(at: indexPaths, with: .automatic)
+    saveChecklistItems()
   }
 
   func configureCheckmark(for cell: UITableViewCell, with item: ChecklistItem) {
     guard let label = cell.viewWithTag(1001) as? UILabel else { return }
-
     if item.checked {
       label.text = "●"
     } else {
@@ -97,6 +128,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     label.text = item.text
   }
 
+  // MARK: Link with Prepare
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard let controller = segue.destination as? ItemDetailViewController else { return }
     if segue.identifier == "AddItem" {
@@ -109,4 +141,5 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
       }
     }
   }
+
 }
