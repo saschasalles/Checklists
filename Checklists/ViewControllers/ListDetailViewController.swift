@@ -23,7 +23,7 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    self.hideKeyboardWhenTappedAround() 
     if let checklist = self.checklistToEdit {
       title = "Edit Checklist"
       textField.text = checklist.name

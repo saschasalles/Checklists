@@ -22,6 +22,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.hideKeyboardWhenTappedAround()
     if let item = itemToEdit {
       title = "Edit Item"
       textField.text = item.text

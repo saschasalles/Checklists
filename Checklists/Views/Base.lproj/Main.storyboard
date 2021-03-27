@@ -29,20 +29,20 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="◉" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUs-Gr-nFZ">
-                                            <rect key="frame" x="15" y="7" width="23.5" height="30"/>
+                                            <rect key="frame" x="15" y="4" width="29" height="36"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="kEZ-bq-MKl"/>
-                                                <constraint firstAttribute="width" constant="23.5" id="nwi-3O-pkF"/>
+                                                <constraint firstAttribute="height" constant="36" id="kEZ-bq-MKl"/>
+                                                <constraint firstAttribute="width" constant="29" id="nwi-3O-pkF"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                             <color key="textColor" systemColor="systemYellowColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="3SF-fO-E03" firstAttribute="centerY" secondItem="voX-Ki-nWX" secondAttribute="centerY" id="BSE-ii-0aX"/>
-                                        <constraint firstItem="3SF-fO-E03" firstAttribute="leading" secondItem="tUs-Gr-nFZ" secondAttribute="trailing" constant="10" id="C0r-l1-OYl"/>
-                                        <constraint firstItem="tUs-Gr-nFZ" firstAttribute="centerY" secondItem="voX-Ki-nWX" secondAttribute="centerY" id="UzH-M3-PYH"/>
+                                        <constraint firstItem="3SF-fO-E03" firstAttribute="leading" secondItem="tUs-Gr-nFZ" secondAttribute="trailing" constant="4.5" id="C0r-l1-OYl"/>
+                                        <constraint firstItem="tUs-Gr-nFZ" firstAttribute="centerY" secondItem="voX-Ki-nWX" secondAttribute="centerY" id="DVR-Tx-pS9"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3SF-fO-E03" secondAttribute="trailing" constant="20" symbolic="YES" id="am4-xh-Wla"/>
                                         <constraint firstItem="tUs-Gr-nFZ" firstAttribute="leading" secondItem="voX-Ki-nWX" secondAttribute="leading" constant="15" id="m2N-wX-UTY"/>
                                     </constraints>
@@ -67,7 +67,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="haP-RT-Ncb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-371" y="-4"/>
+            <point key="canvasLocation" x="-372" y="-4.0479760119940034"/>
         </scene>
         <!--Add Item-->
         <scene sceneID="OWB-bF-Hwb">
