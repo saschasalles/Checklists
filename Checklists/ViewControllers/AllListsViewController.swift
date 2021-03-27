@@ -7,39 +7,13 @@
 
 import UIKit
 
-class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate {
+class AllListsViewController: UITableViewController {
   let cellIdentifier = "ChecklistCell"
   var dataModel: DataModel!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-  }
-
-  // MARK: - List Detail View Controller Delegates
-  func listDetailViewControllerDidCancel(_ controller: ListDetailViewController) {
-    navigationController?.popViewController(animated: true)
-  }
-
-  func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding checklist: Checklist) {
-    let newRowIndex = dataModel.lists.count
-    dataModel.lists.append(checklist)
-
-    let indexPath = IndexPath(row: newRowIndex, section: 0)
-    let indexPaths = [indexPath]
-    tableView.insertRows(at: indexPaths, with: .automatic)
-
-    navigationController?.popViewController(animated: true)
-  }
-
-  func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing checklist: Checklist) {
-    if let index = dataModel.lists.firstIndex(of: checklist) {
-      let indexPath = IndexPath(row: index, section: 0)
-      if let cell = tableView.cellForRow(at: indexPath) {
-        cell.textLabel!.text = checklist.name
-      }
-    }
-    navigationController?.popViewController(animated: true)
   }
 
   // MARK: - TableView
@@ -55,6 +29,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    UserDefaults.standard.set(indexPath.row, forKey: "ChecklistIndex")
     let checklist = dataModel.lists[indexPath.row]
     performSegue(withIdentifier: "ShowChecklist", sender: checklist)
   }
@@ -86,6 +61,58 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     } else if segue.identifier == "AddChecklist" {
       guard let controller = segue.destination as? ListDetailViewController else { return }
       controller.delegate = self
+    }
+  }
+}
+
+extension AllListsViewController: ListDetailViewControllerDelegate {
+  func listDetailViewControllerDidCancel(_ controller: ListDetailViewController) {
+    navigationController?.popViewController(animated: true)
+  }
+
+  func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding checklist: Checklist) {
+    let newRowIndex = dataModel.lists.count
+    dataModel.lists.append(checklist)
+
+    let indexPath = IndexPath(row: newRowIndex, section: 0)
+    let indexPaths = [indexPath]
+    tableView.insertRows(at: indexPaths, with: .automatic)
+
+    navigationController?.popViewController(animated: true)
+  }
+
+  func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing checklist: Checklist) {
+    if let index = dataModel.lists.firstIndex(of: checklist) {
+      let indexPath = IndexPath(row: index, section: 0)
+      if let cell = tableView.cellForRow(at: indexPath) {
+        cell.textLabel!.text = checklist.name
+      }
+    }
+    navigationController?.popViewController(animated: true)
+  }
+}
+
+extension AllListsViewController: UINavigationControllerDelegate {
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    navigationController?.delegate = self
+
+    let index = UserDefaults.standard.integer(
+      forKey: "ChecklistIndex")
+    if index != -1 {
+      let checklist = dataModel.lists[index]
+      performSegue(
+        withIdentifier: "ShowChecklist",
+        sender: checklist)
+    }
+  }
+
+  func navigationController(
+    _ navigationController: UINavigationController,
+    willShow viewController: UIViewController,
+    animated: Bool) {
+    if viewController === self {
+      UserDefaults.standard.set(-1, forKey: "ChecklistIndex")
     }
   }
 }
