@@ -334,6 +334,7 @@
         <segue reference="PSg-v5-PCh"/>
         <segue reference="f7O-3E-YR3"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.99517929553985596" green="0.71236819691128206" blue="0.036827042698860168" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
