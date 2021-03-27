@@ -26,12 +26,10 @@ class DataModel {
   func dataFilePath() -> URL {
     return documentsDirectory().appendingPathComponent("Checklists.plist")
   }
-
-  // this method is now called saveChecklists()
+  
   func saveChecklists() {
     let encoder = PropertyListEncoder()
     do {
-      // You encode lists instead of "items"
       let data = try encoder.encode(lists)
       try data.write(
         to: dataFilePath(),
@@ -41,19 +39,22 @@ class DataModel {
     }
   }
 
-  // this method is now called loadChecklists()
   func loadChecklists() {
     let path = dataFilePath()
     if let data = try? Data(contentsOf: path) {
       let decoder = PropertyListDecoder()
       do {
-        // You decode to an object of [Checklist] type to lists
-        lists = try decoder.decode(
-          [Checklist].self,
-          from: data)
+        lists = try decoder.decode([Checklist].self, from: data)
+        sortChecklists()
       } catch {
         print("Error decoding list array: \(error.localizedDescription)")
       }
+    }
+  }
+
+  func sortChecklists() {
+    lists.sort { list1, list2 in
+      return list1.name.localizedStandardCompare(list2.name) == .orderedAscending
     }
   }
 
@@ -69,7 +70,6 @@ class DataModel {
     if firstTime {
       let checklist = Checklist(name: "List")
       lists.append(checklist)
-
       indexOfSelectedChecklist = 0
       userDefaults.set(false, forKey: "FirstTime")
     }

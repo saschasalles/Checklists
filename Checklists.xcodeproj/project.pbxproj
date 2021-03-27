@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2B00B172260F316600C8BA25 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B00B171260F316600C8BA25 /* Checklist.swift */; };
-		2B00B179260F3D6B00C8BA25 /* ListDetailViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B00B178260F3D6B00C8BA25 /* ListDetailViewControllerTableViewController.swift */; };
+		2B00B179260F3D6B00C8BA25 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B00B178260F3D6B00C8BA25 /* ListDetailViewController.swift */; };
 		2B00B180260F885700C8BA25 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B00B17F260F885700C8BA25 /* DataModel.swift */; };
+		2B00B186260FC02D00C8BA25 /* IconPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B00B185260FC02D00C8BA25 /* IconPickerViewController.swift */; };
 		2B76B896260A2A1900D244F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76B895260A2A1900D244F4 /* AppDelegate.swift */; };
 		2B76B898260A2A1900D244F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76B897260A2A1900D244F4 /* SceneDelegate.swift */; };
 		2B76B89A260A2A1900D244F4 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76B899260A2A1900D244F4 /* ChecklistViewController.swift */; };
@@ -25,8 +26,9 @@
 
 /* Begin PBXFileReference section */
 		2B00B171260F316600C8BA25 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
-		2B00B178260F3D6B00C8BA25 /* ListDetailViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewControllerTableViewController.swift; sourceTree = "<group>"; };
+		2B00B178260F3D6B00C8BA25 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		2B00B17F260F885700C8BA25 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		2B00B185260FC02D00C8BA25 /* IconPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerViewController.swift; sourceTree = "<group>"; };
 		2B76B892260A2A1900D244F4 /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B76B895260A2A1900D244F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B76B897260A2A1900D244F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,8 +61,9 @@
 				2B76B899260A2A1900D244F4 /* ChecklistViewController.swift */,
 				2B76B8B0260A8A9800D244F4 /* ItemDetailViewController.swift */,
 				2BD42289260E2DDF007EFFC8 /* AllListsViewController.swift */,
+				2B00B185260FC02D00C8BA25 /* IconPickerViewController.swift */,
 				2B76B8B4260BE94800D244F4 /* NavigationController.swift */,
-				2B00B178260F3D6B00C8BA25 /* ListDetailViewControllerTableViewController.swift */,
+				2B00B178260F3D6B00C8BA25 /* ListDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -212,11 +215,12 @@
 				2B00B180260F885700C8BA25 /* DataModel.swift in Sources */,
 				2B76B8B5260BE94800D244F4 /* NavigationController.swift in Sources */,
 				2B76B8AD260A60C300D244F4 /* ChecklistItem.swift in Sources */,
+				2B00B186260FC02D00C8BA25 /* IconPickerViewController.swift in Sources */,
 				2B00B172260F316600C8BA25 /* Checklist.swift in Sources */,
 				2B76B89A260A2A1900D244F4 /* ChecklistViewController.swift in Sources */,
 				2B76B896260A2A1900D244F4 /* AppDelegate.swift in Sources */,
 				2B76B898260A2A1900D244F4 /* SceneDelegate.swift in Sources */,
-				2B00B179260F3D6B00C8BA25 /* ListDetailViewControllerTableViewController.swift in Sources */,
+				2B00B179260F3D6B00C8BA25 /* ListDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
