@@ -9,7 +9,17 @@ import UIKit
 
 class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {
 
-  // MARK: - Protocol Conformance
+  var items = [ChecklistItem]()
+  var checklist: Checklist!
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    title = self.checklist.name
+    loadChecklistItems()
+  }
+
+  // MARK: - AddItemViewControllerDelegate Conformance
   func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController) {
     navigationController?.popViewController(animated: true)
   }
@@ -34,14 +44,6 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     }
     navigationController?.popViewController(animated: true)
     saveChecklistItems()
-  }
-
-  var items = [ChecklistItem]()
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-    loadChecklistItems()
   }
 
   // MARK: - Document
@@ -128,7 +130,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     label.text = item.text
   }
 
-  // MARK: Link with Prepare
+  // MARK: - Link with Prepare
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard let controller = segue.destination as? ItemDetailViewController else { return }
     if segue.identifier == "AddItem" {
