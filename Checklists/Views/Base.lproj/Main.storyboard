@@ -120,7 +120,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wqw-Ev-rhp">
-                                                    <rect key="frame" x="28" y="11.666666666666664" width="86" height="21"/>
+                                                    <rect key="frame" x="20" y="11.666666666666664" width="86" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -137,7 +137,7 @@
                                                 <constraint firstItem="da1-ex-ydw" firstAttribute="centerY" secondItem="kkL-fk-fqk" secondAttribute="centerY" id="1K2-eH-Qdn"/>
                                                 <constraint firstItem="Wqw-Ev-rhp" firstAttribute="centerY" secondItem="kkL-fk-fqk" secondAttribute="centerY" id="92C-0H-uzs"/>
                                                 <constraint firstAttribute="trailing" secondItem="da1-ex-ydw" secondAttribute="trailing" constant="15" id="IpE-fs-zWY"/>
-                                                <constraint firstItem="Wqw-Ev-rhp" firstAttribute="leading" secondItem="kkL-fk-fqk" secondAttribute="leadingMargin" constant="8" id="aZj-6a-PUZ"/>
+                                                <constraint firstItem="Wqw-Ev-rhp" firstAttribute="leading" secondItem="kkL-fk-fqk" secondAttribute="leadingMargin" id="aZj-6a-PUZ"/>
                                                 <constraint firstItem="da1-ex-ydw" firstAttribute="centerY" secondItem="Wqw-Ev-rhp" secondAttribute="centerY" id="mHh-zg-7oX"/>
                                                 <constraint firstItem="da1-ex-ydw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Wqw-Ev-rhp" secondAttribute="trailing" constant="8" symbolic="YES" id="uth-9n-Bt0"/>
                                             </constraints>
@@ -157,7 +157,7 @@
                                                     </constraints>
                                                 </datePicker>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgs-Ia-Vee">
-                                                    <rect key="frame" x="28" y="11.666666666666664" width="71" height="21"/>
+                                                    <rect key="frame" x="20" y="11.666666666666664" width="71" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -167,7 +167,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="drL-jX-b5I" secondAttribute="bottom" constant="4" id="0Rq-Dk-xJk"/>
                                                 <constraint firstItem="drL-jX-b5I" firstAttribute="top" secondItem="gPN-fa-rzk" secondAttribute="top" constant="4" id="0k1-OC-4hx"/>
                                                 <constraint firstItem="sgs-Ia-Vee" firstAttribute="centerY" secondItem="gPN-fa-rzk" secondAttribute="centerY" id="B02-RA-DvH"/>
-                                                <constraint firstItem="sgs-Ia-Vee" firstAttribute="leading" secondItem="gPN-fa-rzk" secondAttribute="leadingMargin" constant="8" id="LEO-Lk-0vn"/>
+                                                <constraint firstItem="sgs-Ia-Vee" firstAttribute="leading" secondItem="gPN-fa-rzk" secondAttribute="leadingMargin" id="LEO-Lk-0vn"/>
                                                 <constraint firstAttribute="trailing" secondItem="drL-jX-b5I" secondAttribute="trailing" constant="10" id="daL-Xg-bfD"/>
                                                 <constraint firstItem="drL-jX-b5I" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sgs-Ia-Vee" secondAttribute="trailing" constant="8" symbolic="YES" id="hvX-Aj-KEd"/>
                                             </constraints>
