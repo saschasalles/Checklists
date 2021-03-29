@@ -17,16 +17,28 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
 
   @IBOutlet weak var doneBarButton: UIBarButtonItem!
   @IBOutlet weak var textField: UITextField!
+  @IBOutlet var shouldRemindSwitch: UISwitch!
+  @IBOutlet var datePicker: UIDatePicker!
+  
   weak var delegate: AddItemViewControllerDelegate?
   var itemToEdit: ChecklistItem?
 
   override func viewDidLoad() {
     super.viewDidLoad()
     self.hideKeyboardWhenTappedAround()
+
+    // Date Picker
+    let calendar = Calendar.current
+    let date = calendar.date(byAdding: .minute, value: 10, to: Date())
+    if let dateInTenMinutes = date {
+      self.datePicker.setDate(dateInTenMinutes, animated: true)
+    }
     if let item = itemToEdit {
       title = "Edit Item"
       textField.text = item.text
       doneBarButton.isEnabled = true
+      shouldRemindSwitch.isOn = item.shouldRemind
+      datePicker.date = item.dueDate
     }
   }
 
@@ -43,10 +55,27 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
   @IBAction func done() {
     if let item = itemToEdit {
       item.text = textField.text!
+      item.shouldRemind = shouldRemindSwitch.isOn
+      item.dueDate = datePicker.date
+      item.scheduleNotification()
       delegate?.itemDetailViewController(self,didFinishEditing: item)
     } else {
       let item = ChecklistItem(text: textField.text!)
+      item.shouldRemind = shouldRemindSwitch.isOn
+      item.dueDate = datePicker.date
+      item.scheduleNotification()
       delegate?.itemDetailViewController(self, didFinishAdding: item)
+    }
+  }
+
+  @IBAction func shouldRemindToggled(_ switchControl: UISwitch) {
+    textField.resignFirstResponder()
+
+    if switchControl.isOn {
+      let center = UNUserNotificationCenter.current()
+      center.requestAuthorization(options: [.alert, .sound]) {_, _ in
+        // do nothing
+      }
     }
   }
 
